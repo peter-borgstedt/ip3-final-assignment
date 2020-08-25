@@ -8,7 +8,6 @@ build:
 	@cp -r assets dist
 	@cp index.html dist
 	@cp index.css dist
-	@cp worker.js dist
 	@perl -i -pe 's/data-environment="dev"/data-environment="prod"/g' dist/index.html
 
 deploy: export AWS_PROFILE = ip-chat
