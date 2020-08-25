@@ -253,7 +253,13 @@ export default class Drawer extends Component {
     }
   }
 
-  setSelected(item, itemData) {
+  /**
+   * Set item element as selected.
+   * @param item Item element
+   * @param itemData Item (channel) data
+   * @param shouldDispatch If a select event should be dispatched
+   */
+  setSelected(item, itemData, shouldDispatch) {
     // Remove selection class on previous selected item
     if (this.selectedItem) {
       this.selectedItem.classList.remove("selected");
@@ -263,8 +269,10 @@ export default class Drawer extends Component {
     item.classList.add("selected");
     this.selectedItem = item;
 
-    // Dispatch event that item has been selected
-    this.dispatchEvent(new CustomEvent('item-selected', { detail: itemData, composed: true }));
+    if (shouldDispatch) {
+      // Dispatch event that item has been selected
+      this.dispatchEvent(new CustomEvent('item-selected', { detail: itemData, composed: true }));
+    }
   }
 
   /**
@@ -280,7 +288,7 @@ export default class Drawer extends Component {
     item.addEventListener('click', (event) => {
       event.preventDefault();
 
-      this.setSelected(item, itemData);
+      this.setSelected(item, itemData, true);
     });
 
     const icon = document.createElement('i');
@@ -307,10 +315,14 @@ export default class Drawer extends Component {
     }
   }
 
+  /**
+   * Select (highlight) an item from the list
+   * @param itemId Id of item
+   */
   selectItem(itemData) {
     const item = this.shadowRoot.getElementById(itemData.id);
     if (item) {
-      this.setSelected(item, itemData);
+      this.setSelected(item, itemData, false);
     }
   }
 }
