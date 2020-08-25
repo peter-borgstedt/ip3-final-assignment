@@ -1,0 +1,9 @@
+# Build and dependencies
+node_modules
+
+# Plugins
+.history
+
+# Miscellaneous
+.DS_Store
+dist

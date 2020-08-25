@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" data-environment="dev">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>IP1 Happy Chat App</title>
+
+    <!-- Set favicon "programmatically" instead of putting the file in the root -->
+    <link rel="icon" href="assets/favicon.png?v=2" type="image/x-icon">
+
+    <!-- Prefetch, preload and preconnect (for faster startup and loading times) -->
+    <link rel="prefetch" as="font" href="fonts/consolas/consolas+bold.ttf">
+    <link rel="prefetch" as="font" href="fonts/consolas/consolas+italic+bold.ttf">
+    <link rel="prefetch" as="font" href="fonts/consolas/consolas+italic.ttf">
+    <link rel="prefetch" as="font" href="fonts/consolas/consolas+oblique.ttf">
+    <link rel="prefetch" as="font" href="fonts/materialicons/materialicons-regular.woff2">
+    <link rel="prefetch" as="font" href="fonts/consolas/consolas.ttf">
+    <link rel="prefetch" as="image" href="fonts/consolas/consolas+bold.ttf">
+
+    <link rel="stylesheet" href="/libraries/cropperjs/cropper.css">
+    <link rel="stylesheet" type="text/css" href="/fonts/fonts.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+
+    <link rel="prefetch" href="assets/logo.png">
+
+    <!-- Web components: core -->
+    <script type="module" rel="modulepreload" src="/scripts/app.esm.js"></script> <!-- Web application --> 
+    <script type="module" rel="modulepreload" src="/scripts/core/router-link.esm.js"></script>
+    <script type="module" rel="modulepreload" src="/scripts/core/router.esm.js"></script>
+
+    <!-- Web components: components -->
+    <script type="module" rel="modulepreload" src="/scripts/components/inputs/button.esm.js"></script>
+    <script type="module" rel="modulepreload" src="/scripts/components/inputs/checkbox.esm.js"></script>
+    <script type="module" rel="modulepreload" src="/scripts/components/inputs/form.esm.js"></script>
+    <script type="module" rel="modulepreload" src="/scripts/components/inputs/input.esm.js"></script>
+    
+    <script type="module" rel="modulepreload" src="/scripts/components/control.esm.js"></script>
+    <script type="module" rel="modulepreload" src="/scripts/components/channel-drawer.esm.js"></script>
+    <script type="module" rel="modulepreload" src="/scripts/components/message.esm.js"></script>
+    <script type="module" rel="modulepreload" src="/scripts/components/message-image.esm.js"></script>
+    
+    <script type="module" rel="modulepreload" src="/scripts/components/gadgets/modal.esm.js"></script>
+    <script type="module" rel="modulepreload" src="/scripts/components/gadgets/dropdown.esm.js"></script>
+    
+    <!-- Web components: views -->
+    <script type="module" rel="modulepreload" src="/scripts/views/profile.esm.js"></script>
+    <script type="module" rel="modulepreload" src="/scripts/views/theme.esm.js"></script>
+    <script type="module" rel="modulepreload" src="/scripts/views/browse-channels.esm.js"></script>
+    <script type="module" rel="modulepreload" src="/scripts/views/create-channel.esm.js"></script>
+    <script type="module" rel="modulepreload" src="/scripts/views/sidebar.esm.js"></script>
+    <script type="module" rel="modulepreload" src="/scripts/views/channel.esm.js"></script>
+    
+    <!-- Services and miscellaneous utilities -->
+    <script type="module" rel="modulepreload" src="/scripts/services/api.esm.js"></script>
+
+    <!-- Spinner -->
+    <script type="module" rel="modulepreload" src="/scripts/components/spinners/smiley-spinner.esm.js"></script>
+    <script type="module" rel="modulepreload" src="/scripts/components/spinners/spinner.esm.js"></script>
+
+    <!-- Run Webapplication -->
+    <script type="module" rel="import" src="scripts/bootstrap.js"></script>
+    <script type="module" rel="import" src="libraries/cropperjs/cropper.js"></script>
+  </head>
+
+  <body>
+    <!--
+      https://tobiasahlin.com/spinkit
+      See (MIT) license: https://github.com/tobiasahlin/SpinKit/blob/master/LICENSE
+    -->
+    <div id="spinner" class="spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+  </body>
+</html>

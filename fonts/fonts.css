@@ -1,0 +1,38 @@
+/* https://freefontsdownload.net/free-consolas-font-33098.htm */
+@font-face {
+  font-family: "Consolas";
+  /* Temporarly use a system font until the font is available */
+  font-display: swap;
+  src: url("./consolas/consolas.ttf");
+}
+
+@font-face {
+  font-family: "Consolas";
+  src: url("./consolas/consolas+bold.ttf");
+  font-display: swap;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Consolas";
+  src: url("./consolas/consolas+italic.ttf");
+  font-display: swap;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Consolas";
+  src: url("./consolas/consolas+italic+bold.ttf");
+  font-display: swap;
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* https://google.github.io/material-design-icons/ */
+@font-face {
+  font-family: 'Material Icons';
+  src: local('Material Icons'), local('MaterialIcons-Regular'), url(materialicons/materialicons-regular.woff2) format('woff2');
+  font-display: swap;
+  font-weight: 400;
+  font-style: normal;
+}

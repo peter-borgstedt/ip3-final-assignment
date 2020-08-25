@@ -1,0 +1,199 @@
+
+@import url("/fonts/fonts.css");
+:root {
+  --chat-background: white;
+
+  --sidebar-background: #f8f8f8;
+  --sidebar-text-color: #888;
+
+  --sidebar-action-top-text-color: #555;
+  --sidebar-action-top-icon-color: #555;
+  --sidebar-action-top-hover-text-color: #222;
+  --sidebar-action-top-hover-icon-color: #222;
+  --sidebar-action-top-hover-background: transparent;
+
+  --sidebar-action-bottom-text-color: #555;
+  --sidebar-action-bottom-icon-color: #555;
+  --sidebar-action-bottom-hover-text-color: #222;
+  --sidebar-action-bottom-hover-icon-color: #222;
+  --sidebar-action-bottom-hover-background: transparent;
+
+  --sidebar-channel-header-text-color: #555;
+  --sidebar-channel-header-cursor-color: #555;
+  --sidebar-channel-header-hover-text-color: #222;
+  --sidebar-channel-header-hover-cursor-color: #222;
+
+  --sidebar-channel-item-icon: 'chat';
+  --sidebar-channel-item-text-color: #555;
+  --sidebar-channel-item-icon-color: #555;
+  --sidebar-channel-item-hover-text-color: green;
+  --sidebar-channel-item-hover-icon-color: green;
+  --sidebar-channel-item-hover-background: transparent;
+  --sidebar-channel-item-selected-text-color: lightgreen;
+  --sidebar-channel-item-selected-icon-color: white;
+  --sidebar-channel-item-selected-background: #555;
+
+  --sidebar-border-horizontal-color: #ccc;
+  --sidebar-border-vertical-color: #eee;
+  --sidebar-border-resizable-hover-color: green;
+  --sidebar-border-resizable-toggle-hover-color: white;
+  --sidebar-border-resizable-toggle-hover-background: green;
+  --sidebar-border-resizable-toggle-open-background: white;
+  --sidebar-border-resizable-toggle-open-color: #555;
+  --sidebar-border-resizable-toggle-closed-color: white;
+  --sidebar-border-resizable-toggle-closed-background: gray;
+
+  --dropdown-button-color: #555;
+  --dropdown-button-hover-color: green;
+  --dropdown-button-hover-background: transparent;
+
+  --channel-background: transparent;
+
+  --channel-header-background: transparent;
+  --channel-header-border-color: #f0f0f0;
+  --channel-header-title-color: #222;
+  --channel-header-description-color: #888;
+  --channel-header-action-icon-color: black;
+  --channel-header-action-hover-icon-color: green;
+  --channel-header-subscription-color: black;
+
+  --channel-control-border-color: #888;
+  --channel-control-separator-border-color: #e0e0e0;
+  --channel-control-background: white;
+  --channel-control-color: #444;
+
+  --channel-control-toolbar-background: #eee;
+  --channel-control-toolbar-action-icon-color: #888;
+  --channel-control-toolbar-action-icon-background: transparent;
+  --channel-control-toolbar-action-hover-icon-color: #222;
+  --channel-control-toolbar-action-hover-icon-background: #ccc;
+  --channel-control-toolbar-action-selected-icon-background: #ddd;
+  --channel-control-toolbar-action-selected-border-color: #888;
+
+  --channel-control-attachment-background: white;
+  --channel-control-attachment-border-color: #aaa;
+  --channel-control-attachment-hover-background: white;
+  --channel-control-attachment-hover-border-color: black;
+  --channel-control-attachment-hover-button-color: white;
+  --channel-control-attachment-hover-button-background: green;
+
+  --channel-message-background: transparent;
+  --channel-message-hover-background: #f8f8f8;
+  --channel-message-username-color: #222;
+  --channel-message-timestamp-color: #888;
+  --channel-message-text-color: #444;
+  --channel-message-delete-background: black;
+  --channel-message-delete-hover-background: red;
+
+  --modal-background: white;
+  --modal-border-color: #ccc;
+  --modal-header-background: transparent;
+  --modal-header-color: #222;
+
+  --modal-button-border-color: #888;
+  --modal-button-background: white;
+  --modal-button-color: #222;
+
+  --modal-button-hover-border-color: green;
+  --modal-button-hover-background: green;
+  --modal-button-hover-color: white;
+
+  --modal-label-color: #555;
+
+  --modal-input-background: transparent;
+  --modal-input-border-color: #888;
+  --modal-input-color: black;
+  --modal-input-hover-border-color: green;
+  --modal-input-radio-color: green;
+
+  --profile-remove-image-color: green;
+
+  --subscription-background: transparent;
+  --subscription-border-color: #e0e0e0;
+  --subscription-header-color: #222;
+
+  --subscription-input-border-color: #888;
+  --subscription-input-color: #888;
+  --subscription-input-focus-border-color: #555;
+  --subscription-input-focus-outline-color: rgba(0, 75, 0, 0.5);
+
+  --subscription-channel-border-color: #ccc;
+  --subscription-channel-color: #555;
+  --subscription-channel-icon-color: black;
+  --subscription-channel-hover-icon-color: green;
+  --subscription-channel-hover-background: #eee;
+
+  --smiley-spinner-color: #ffedbd;
+}
+
+:root {
+  box-sizing: border-box;
+
+  font-family: sans-serif;
+  font-weight: normal;
+  font-size: 20px;
+  font-variant-ligatures: none;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  color: #888;
+}
+
+html, body {
+  width: 100%;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#spinner {
+  display: flex;
+  justify-content: center; /* align horizontal */
+  align-items: center; /* align vertical */
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Spin-kit */
+#spinner > div {
+  width: 50px;
+  height: 50px;
+  background-color: #333;
+
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: bouncedelay 1.4s infinite ease-in-out both;
+  animation: bouncedelay 1.4s infinite ease-in-out both;
+}
+
+#spinner .bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+#spinner .bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@keyframes bouncedelay {
+  0%, 80%, 100% { 
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  } 40% { 
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}
+
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% { -webkit-transform: scale(0) }
+  40% { -webkit-transform: scale(1.0) }
+}
+
+@media only screen and (max-width: 600px) {
+  :root {
+    font-size: 15px;
+  }
+}
