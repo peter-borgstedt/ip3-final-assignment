@@ -63,6 +63,10 @@ export default class Channel extends Component {
         z-index: 5;
       }
 
+      .drag-drop-header {
+        margin: 0 1rem 0 1rem;
+      }
+
       .drag-drop-backdrop-visible * {
         display: flex;
       }
@@ -271,7 +275,7 @@ export default class Channel extends Component {
 
         <div id="container">
           <div id="drag-drop-backdrop">
-            Drag & drop any image for attaching it to a new message!
+            <span class="drag-drop-header">Drag & drop any image for attaching it to a new message!</span>
           </div>
 
           <div id="content-state-container">
