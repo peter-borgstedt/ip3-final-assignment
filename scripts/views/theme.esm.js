@@ -177,7 +177,7 @@ export default class Theme extends Component {
 
   populateThemes() {
     const selectedTheme = localStorage.getItem('theme') || 'default';
-    console.log('selected', selectedTheme);
+    console.log(`[theme.esm.js::populateThemes] Using theme: ${selectedTheme}`);
 
     const items = this.shadowRoot.getElementById('themes');
 
@@ -211,11 +211,11 @@ export default class Theme extends Component {
 
     // Send an event that will create the channel and add it to the subscribed channels
     modal.addEventListener('confirm', async () => {
+      console.log(`[theme.esm.js::populateThemes] Set theme: ${this.selected}`);
+
       if (this.selected === 'default') {
-        console.log('remove', this.selected);
         localStorage.removeItem('theme');
       } else if (this.selected) {
-        console.log('set', this.selected);
         localStorage.setItem('theme', this.selected);
       }
       setTheme(this.selected);

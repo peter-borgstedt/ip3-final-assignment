@@ -353,10 +353,10 @@ export default class Router extends HTMLElement {
       }
 
       // If the content of the view cannot be determined log out for debugging
-      console.log(`[${this.name}::router::handler]: -> ${route.routePath || '/' }`);
+      console.log(`[${this.name}::router::handler] -> ${route.routePath || '/' }`);
     } else {
       // If the guard stopped the view from continuing then log it out for debugging
-      console.log(`[${this.name}::router::handler]: -> ${path} was stopped by guard`);
+      console.log(`[${this.name}::router::handler] -> ${path} was stopped by guard`);
     }
   }
 }

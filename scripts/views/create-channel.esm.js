@@ -127,11 +127,6 @@ export default class CreateChannel extends Component {
       name.setCustomValidity(''); // Reset any custom validation errors
 
       if (name.reportValidity() && description.reportValidity()) {
-        // Send event which will create and subscribe on channel
-        this.bus.dispatchEvent('channel-create', {
-          name: name.value, description: description.value
-        });
-
         this.addBusEventListener('channel-created', () => {
           // Will close (remove) the modal and this component
           modal.close();
@@ -142,9 +137,15 @@ export default class CreateChannel extends Component {
             name.setCustomValidity('Channel already exists');
             name.reportValidity();
           } else {
-            name.setCustomValidity('Could not create channe due to server error');
+            console.log('error', error);
+            name.setCustomValidity('Could not create channel due to server error');
             name.reportValidity();
           }
+        });
+
+        // Send event which will create and subscribe on channel
+        this.bus.dispatchEvent('channel-create', {
+          name: name.value, description: description.value
         });
       }
 

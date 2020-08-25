@@ -55,7 +55,7 @@ export default class Chat extends Component {
 
   /**
    * Creates a channel view and add it in the preloaded collection.
-   * @param channelid ID of channel
+   * @param channel Channel data
    */
   createChannelView(channel) {
     const view = document.createElement('ip-channel');
@@ -65,7 +65,7 @@ export default class Chat extends Component {
 
   /**
    * Remove a channel view from the preloaded collection.
-   * @param channelid ID of channel
+   * @param channel Channel data
    */
   removeChannelView(channel) {
     delete this.channelViews[channel.id];
@@ -73,10 +73,10 @@ export default class Chat extends Component {
 
   /**
    * Sets a channel view on the right side replacing any existing content.
-   * @param channelid ID of channel
+   * @param channelId ID of channel
    */
-  setChannelView(channelid) {
-    const view = this.channelViews[channelid];
+  setChannelView(channelId) {
+    const view = this.channelViews[channelId];
     this.setView(view);
   }
 
@@ -125,8 +125,8 @@ export default class Chat extends Component {
           resolve();
         });
 
-        // Add reconnection if the browser by some reason is timingout event
-        // thought ping and pong are sent between them, if server has restarted
+        // Add reconnection if the browser by some reason is timing out event
+        // even though ping and pong are sent between them, if server has restarted
         // the user will be redirected to login as the key for signing tokens has
         // been rotated...
         websocket.addEventListener('onclose', async (event) => {
@@ -158,11 +158,11 @@ export default class Chat extends Component {
       }
     });
 
-    console.log('[chat.esm.js::load] Websocket succesfully connected');
+    console.log('[chat.esm.js::load] Websocket successfully connected');
 
     await this.context.init(); // Load initial data before displaying page
 
-    console.log('[chat.esm.js::load] Context succesfully initiated');
+    console.log('[chat.esm.js::load] Context successfully initiated');
   }
 
   async afterLoad() {
@@ -204,7 +204,7 @@ export default class Chat extends Component {
   /**
    * Setup listeners on events that will dynamically change
    * the view or update content of it. The events are dispatched
-   * from the server and from other view within the webapplication.
+   * from the server and from other view within the web application.
    */
   setupEventListeners() {
     // The profile view has been opened (clicked)

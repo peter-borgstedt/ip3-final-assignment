@@ -343,7 +343,10 @@ export default class Channels extends Component {
     /**
      * Add event listeners when a channel has been created, subscribed or unsubscribed upon.
      */
-    this.addBusEventListener('channel-created', (channel) => drawer.addItem(channel));
+    this.addBusEventListener('channel-created', (channel) => {
+      drawer.addItem(channel); // Add item to list of channels
+      drawer.selectItem(channel); // Select channel
+    });
     this.addBusEventListener('channel-subscribed', (channel) => drawer.addItem(channel));
     this.addBusEventListener('channel-unsubscribed', (channel) => drawer.removeItem(channel.id));
     this.addBusEventListener('channel-deleted', (channelId) => {

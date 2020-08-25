@@ -253,6 +253,20 @@ export default class Drawer extends Component {
     }
   }
 
+  setSelected(item, itemData) {
+    // Remove selection class on previous selected item
+    if (this.selectedItem) {
+      this.selectedItem.classList.remove("selected");
+    }
+
+    // Set clicked item as selected
+    item.classList.add("selected");
+    this.selectedItem = item;
+
+    // Dispatch event that item has been selected
+    this.dispatchEvent(new CustomEvent('item-selected', { detail: itemData, composed: true }));
+  }
+
   /**
    * Add item to list.
    * @param itemData Data for an item to be accessed in the list
@@ -266,17 +280,7 @@ export default class Drawer extends Component {
     item.addEventListener('click', (event) => {
       event.preventDefault();
 
-      // Remove selection class on previous selected item
-      if (this.selectedItem) {
-        this.selectedItem.classList.remove("selected");
-      }
-
-      // Set clicked item as selected
-      item.classList.add("selected");
-      this.selectedItem = item;
-
-      // Dispatch event that item has been selected
-      this.dispatchEvent(new CustomEvent('item-selected', { detail: itemData, composed: true }));
+      this.setSelected(item, itemData);
     });
 
     const icon = document.createElement('i');
@@ -300,6 +304,13 @@ export default class Drawer extends Component {
     const item = this.shadowRoot.getElementById(itemId);
     if (item) {
       item.remove();
+    }
+  }
+
+  selectItem(itemData) {
+    const item = this.shadowRoot.getElementById(itemData.id);
+    if (item) {
+      this.setSelected(item, itemData);
     }
   }
 }

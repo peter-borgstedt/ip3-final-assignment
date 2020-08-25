@@ -86,7 +86,7 @@ class WebsocketProxy {
    * @param {object} data Content of message (with associated channel and user)
    */
   incomingMessage(data) {
-    console.log('[websocket-proxy.esm.js::incoming]: message', data);
+    console.log('[websocket-proxy.esm.js::incoming] <- message', data);
 
     // Push message data forward to correct channel
     this.bus.dispatchEvent(`channel-${data.channelId}`, data);
@@ -99,7 +99,7 @@ class WebsocketProxy {
    * @param {object} data Content of message (with associated channel and user)
    */
   incomingMessageDelete(data) {
-    console.log('[websocket-proxy.esm.js::incoming]: message-deleted', data);
+    console.log('[websocket-proxy.esm.js::incoming] <- message-deleted', data);
 
     // Push message data forward to correct channel
     this.bus.dispatchEvent(`message-${data.channelId}-${data.id}`, data);
@@ -113,7 +113,7 @@ class WebsocketProxy {
    * @param data The channel details
    */
   incomingChannelSubscribed(data) {
-    console.log('[websocket-proxy.esm.js::incoming]: channel-subscribed', data);
+    console.log('[websocket-proxy.esm.js::incoming] <- channel-subscribed', data);
     if (data.userId === this.user.id) {
       // Event will add the channel from the sidebar
       this.bus.dispatchEvent('channel-subscribed', data);
@@ -131,7 +131,7 @@ class WebsocketProxy {
    * @param {object} data Channel details
    */
   incomingChannelUnsubscribed(data) {
-    console.log('[websocket-proxy.esm.js::incoming]: channel-unsubscribed', data);
+    console.log('[websocket-proxy.esm.js::incoming] <- channel-unsubscribed', data);
 
     if (data.userId === this.user.id) {
       // Event will remove the channel from the sidebar
@@ -149,7 +149,7 @@ class WebsocketProxy {
    * @param {string} data The channel ID to be removed
    */
   incomingChannelDeleted(data) {
-    console.log('[websocket-proxy.esm.js::incoming]: channel-deleted', data);
+    console.log('[websocket-proxy.esm.js::incoming] <- channel-deleted', data);
 
     // Remove channel for all clients if channel has been deleted
     this.bus.dispatchEvent(`channel-deleted`, data);
@@ -170,7 +170,7 @@ class WebsocketProxy {
    * @param {object} data A profile change set (contains only properties that have been changed)
    */
   incomingProfileChange(data) {
-    console.log(`[websocket-proxy.esm.js::incoming]: profile-changed (${data.id})`, data);
+    console.log(`[websocket-proxy.esm.js::incoming] <- profile-changed (${data.id})`, data);
     this.bus.dispatchEvent('profile-changed', data);
     this.bus.dispatchEvent(`profile-changed-${data.id}`, data);
   }
@@ -182,7 +182,7 @@ class WebsocketProxy {
    * @param {object} data Content of message (with associated channel and user)
    */
   outgoingMessage(data) {
-    console.log('[websocket-proxy.esm.js::outgoing]: message', data);
+    console.log('[websocket-proxy.esm.js::outgoing] -> message', data);
 
     // Send as binary (BufferArray / byte array) as there are pretty
     // much no limit on how much we can send through this, it is also
@@ -204,7 +204,7 @@ class WebsocketProxy {
    * @param {object} data Content of message (with associated channel and user)
    */
   outgoingMessageDelete(data) {
-    console.log('[websocket-proxy.esm.js::outgoing]: message-delete', data);
+    console.log('[websocket-proxy.esm.js::outgoing] -> message-delete', data);
     const { id, channelId } = data;
     this.websocket.sendBinary({
       type: 'message-delete',
@@ -220,7 +220,7 @@ class WebsocketProxy {
    * @param {object} data Channel details
    */
   outgoingChannelSubscribe(data) {
-    console.log('[websocket-proxy.esm.js::outgoing]: channel-subscribe', data);
+    console.log('[websocket-proxy.esm.js::outgoing] -> channel-subscribe', data);
 
     this.websocket.sendBinary({
       type: 'channel-subscribe',
@@ -236,7 +236,7 @@ class WebsocketProxy {
    * @param {object} data Channel details
    */
   outgoingChannelUnsubscribe(data) {
-    console.log('[websocket-proxy.esm.js::outgoing]: channel-unsubscribe', data);
+    console.log('[websocket-proxy.esm.js::outgoing] -> channel-unsubscribe', data);
 
     this.websocket.sendBinary({
       type: 'channel-unsubscribe',
@@ -251,7 +251,7 @@ class WebsocketProxy {
    * @param {object} data Channel details
    */
   outgoingChannelDelete(data) {
-    console.log('[websocket-proxy.esm.js::outgoing]: channel-delete', data);
+    console.log('[websocket-proxy.esm.js::outgoing] -> channel-delete', data);
 
     this.websocket.sendBinary({
       type: 'channel-delete',
@@ -266,7 +266,7 @@ class WebsocketProxy {
    * @param {object} data A profile change set (contains only properties that have been changed)
    */
   outgoingProfileUpdate(data) {
-    console.log('[websocket-proxy.esm.js::outgoing]:: profile-update', data);
+    console.log('[websocket-proxy.esm.js::outgoing] -> profile-update', data);
 
     this.websocket.sendBinary({
       type: 'profile-update',

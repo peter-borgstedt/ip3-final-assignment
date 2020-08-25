@@ -147,7 +147,7 @@ export default class Component extends HTMLElement {
 
   // The web component is connected to the DOM
   async connectedCallback() {
-    console.log(`[${this.localName}]: has been connected to the DOM`);
+    console.log(`[${this.localName}] Has been connected to the DOM`);
     try {
       // Build components and adds some extra steps into the components life cycle
       await this.build();

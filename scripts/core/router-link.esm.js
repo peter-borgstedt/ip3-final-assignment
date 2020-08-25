@@ -15,7 +15,7 @@ export default class RouterLink extends HTMLAnchorElement {
 
       // Get the hyperlink referense (the path/URL)
       const href = this.getAttribute('href');
-      console.log(`[router-link]: ${href}`);
+      console.log(`[router-link] ${href}`);
 
       // Get the router module
       const Router = (await import('/scripts/core/router.esm.js')).default;
