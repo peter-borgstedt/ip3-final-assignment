@@ -190,7 +190,7 @@ export default class Register extends Component {
       }`;
 
     this._template = `
-      <div id="bar-top"><img src="/assets/logo2.png" height="50px"></div>
+      <div id="bar-top"><img src="/assets/logo.png" height="50px"></div>
 
       <div id="layout">
         <div class="header">

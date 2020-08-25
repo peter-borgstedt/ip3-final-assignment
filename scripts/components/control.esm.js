@@ -183,17 +183,11 @@ export default class Control extends Component {
       .attachment {
         display: flex;
         position: relative;
-
-        min-height: 0px;
-        min-width: 0px;
-
         height: 100%;
       }
 
       .attachment-image {
-        height: 100%;
-        min-width: 0px;
-        max-height: 3.5rem;
+        max-width: 3.5rem;
         border: 3px solid var(--channel-control-attachment-background);
         outline: 1px solid var(--channel-control-attachment-border-color);
       }
@@ -260,7 +254,7 @@ export default class Control extends Component {
 
         <div id="attachments">
           <div class="attachment"> 
-            <!--img class="attachment-image" src="/assets/avatar.jpg">
+            <!--img class="attachment-image" src="/assets/avatar.png">
             <div class="attachment-button"></div-->
           </div>
         </div>
